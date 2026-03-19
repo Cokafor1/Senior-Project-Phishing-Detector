@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Detector</title>
+</head>
+
+<body>
+
+<h1>Phishing URL Detector</h1>
+
+<p>Enter a website URL to check if it might be phishing.</p>
+
+<input type="text" id="urlInput" placeholder="Enter URL here">
+<button onclick="checkURL()">Check URL</button>
+
+<p id="result"></p>
+
+<script>
+function checkURL(){
+
+    const url = document.getElementById("urlInput").value;
+
+    if(url === ""){
+        document.getElementById("result").innerText = "Please enter a URL.";
+        return;
+    }
+
+    if(url.includes("login") || url.includes("verify") || url.includes("secure")){
+        document.getElementById("result").innerText = "⚠️ Warning: This URL might be suspicious.";
+    } else {
+        document.getElementById("result").innerText = "✅ This URL appears safe.";
+    }
+
+}
+</script>
+
+</body>
+</html>
