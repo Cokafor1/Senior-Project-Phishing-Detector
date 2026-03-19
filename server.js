@@ -4,7 +4,9 @@ const axios   = require('axios');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['https://senior-project-phishing-detector-production.up.railway.app', 'http://localhost:3000']
+}));
 app.use(express.json({ limit: '2mb' }));
 app.use(express.static('public'));
 
